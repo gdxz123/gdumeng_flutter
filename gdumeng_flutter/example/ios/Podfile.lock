@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - gdumeng_flutter (0.0.1):
+    - Flutter
+    - UMengAnalytics-NO-IDFA
+  - UMengAnalytics-NO-IDFA (4.2.5)
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - gdumeng_flutter (from `.symlinks/plugins/gdumeng_flutter/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UMengAnalytics-NO-IDFA
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  gdumeng_flutter:
+    :path: ".symlinks/plugins/gdumeng_flutter/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  gdumeng_flutter: edd3c120838279e879eae145c0fd215f648def0c
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+
+PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
+
+COCOAPODS: 1.6.1
