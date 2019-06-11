@@ -26,7 +26,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
-
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -37,8 +36,12 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    buildToolsVersion '28.0.3'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    /*友盟统计需要的最新版本组件化基础库和统计SDK*/
+    compile 'com.umeng.sdk:common:latest.integration'
+    compile 'com.umeng.sdk:analytics:latest.integration'
 }

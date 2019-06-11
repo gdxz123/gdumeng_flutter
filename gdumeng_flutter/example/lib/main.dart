@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+
   static bool _inited;
 
   @override
@@ -23,9 +24,14 @@ class _MyAppState extends State<MyApp> {
     if (_inited == null) {
       _inited = true;
       if (Platform.isIOS) {
-        GdumengFlutter.makeup("5cfdcbed3fc195562c0000ba", "AppStore");
+        try {
+          GdumengFlutter.makeup("5cfdcbed3fc195562c0000ba", "AppStore");
+        } on PlatformException {}
+
       } else if (Platform.isAndroid) {
-        GdumengFlutter.makeup("5cfdcbcb0cafb21ddd0003c6", "Android");
+        try {
+          GdumengFlutter.makeup("5cfdcbcb0cafb21ddd0003c6", "Android");
+        } on PlatformException {}
       }
     }
   }

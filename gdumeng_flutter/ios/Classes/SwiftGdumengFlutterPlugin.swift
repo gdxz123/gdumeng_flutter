@@ -13,7 +13,7 @@ public class SwiftGdumengFlutterPlugin: NSObject, FlutterPlugin {
             result("iOS " + UIDevice.current.systemVersion)
         } else if (call.method == "makeup") {
             self.makeup(call: call)
-            result(nil)
+            result("")
         } else {
             result(FlutterMethodNotImplemented)
         }
