@@ -10,6 +10,14 @@
         android:name=".GdumengApplication"
         android:label="gdumeng_flutter_example"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Android"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5cfdcbcb0cafb21ddd0003c6"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -30,4 +38,10 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

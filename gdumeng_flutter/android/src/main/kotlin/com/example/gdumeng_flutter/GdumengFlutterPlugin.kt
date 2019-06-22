@@ -48,8 +48,9 @@ class GdumengFlutterPlugin: MethodCallHandler {
         if (appkey.length > 0) {
 //            Toast.makeText(mActivity, appkey, Toast.LENGTH_SHORT).show()
             try {
-//                val application = Class.forName("android.app.AppGlobals").getMethod("getInitialApplication").invoke(null, null as Array<Object>?) as Application
                 UMConfigure.init(mActivity, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, null);
+                UMConfigure.setEncryptEnabled(false);
+                UMConfigure.setLogEnabled(true);
             } catch (e: Exception) {
                 e.printStackTrace()
             }
