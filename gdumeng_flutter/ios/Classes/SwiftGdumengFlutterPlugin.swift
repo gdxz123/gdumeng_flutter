@@ -14,13 +14,27 @@ public class SwiftGdumengFlutterPlugin: NSObject, FlutterPlugin {
         } else if (call.method == "makeup") {
             self.makeup(call: call)
             result("")
-        } else {
+        } else if (call.method == "beginPageView") {
+             self.beginPageView(call)
+             result(null)
+        } else if (call.method == "endPageView") {
+              self.endPageView(call)
+              result(null)
+        }  else {
             result(FlutterMethodNotImplemented)
         }
     }
     
     private func makeup(call: FlutterMethodCall) {
-        let result = [GdumengFlutterPlugin .makeupAnalysic(call)];
+        let result = GdumengFlutterPlugin.makeupAnalysic(call);
         debugPrint(result)
+    }
+
+    private func beginPageView(call: FlutterMethodCall) {
+
+    }
+
+    private func endPageView(call: FlutterMethodCall) {
+
     }
 }

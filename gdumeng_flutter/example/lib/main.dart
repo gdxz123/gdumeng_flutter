@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'dart:io';
 import 'package:gdumeng_flutter/gdumeng_flutter.dart';
+import 'package:package_info/package_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,6 +15,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+
+  String _appVersion = 'Unknown';
 
   static bool _inited;
 
@@ -30,10 +33,18 @@ class _MyAppState extends State<MyApp> {
 
       } else if (Platform.isAndroid) {
         try {
-          GdumengFlutter.makeup("5cfdcbcb0cafb21ddd0003c6", "Android");
+          GdumengFlutter.makeup("5cfdcbcb0cafb21ddd0003c6", "Test2");
         } on PlatformException {}
       }
+
+      GdumengFlutter.beginPageView("HomePage");
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    GdumengFlutter.endPageView("HomePage");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -46,6 +57,10 @@ class _MyAppState extends State<MyApp> {
       platformVersion = 'Failed to get platform version.';
     }
 
+    String appVersion;
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    appVersion = packageInfo.version;
+
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
@@ -53,6 +68,7 @@ class _MyAppState extends State<MyApp> {
 
     setState(() {
       _platformVersion = platformVersion;
+      _appVersion = appVersion;
     });
   }
 
@@ -64,7 +80,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('Running on: $_platformVersion \n app version: $_appVersion \n'),
         ),
       ),
     );

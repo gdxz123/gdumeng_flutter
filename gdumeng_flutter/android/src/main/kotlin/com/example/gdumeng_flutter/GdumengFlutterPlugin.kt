@@ -36,9 +36,27 @@ class GdumengFlutterPlugin: MethodCallHandler {
         } else if (call.method == "makeup") {
             makeupAnalysc(call)
             result.success("")
+        } else if (call.method == "beginPageView") {
+            beginPageView(call)
+            result.success(null)
+        } else if (call.method == "endPageView") {
+            endPageView(call)
+            result.success(null)
         } else {
             result.notImplemented()
         }
+    }
+
+    private fun beginPageView(call: MethodCall) {
+        var pageName = call.argument<String>("name") ?: "Undefined"
+        MobclickAgent.onPageStart(pageName)
+        MobclickAgent.onResume(mActivity)
+    }
+
+    private fun endPageView(call: MethodCall) {
+        var pageName = call.argument<String>("name") ?: "Undefined"
+        MobclickAgent.onPageEnd(pageName)
+        MobclickAgent.onPause(mActivity)
     }
 
     private fun makeupAnalysc(call: MethodCall) {
@@ -48,9 +66,10 @@ class GdumengFlutterPlugin: MethodCallHandler {
         if (appkey.length > 0) {
 //            Toast.makeText(mActivity, appkey, Toast.LENGTH_SHORT).show()
             try {
-                UMConfigure.init(mActivity, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, null);
-                UMConfigure.setEncryptEnabled(false);
-                UMConfigure.setLogEnabled(true);
+                UMConfigure.setLogEnabled(true)
+                UMConfigure.init(mActivity, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, null)
+                UMConfigure.setEncryptEnabled(false)
+//                MobclickAgent.openActivityDurationTrack(false)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

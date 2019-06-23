@@ -17,4 +17,12 @@ class GdumengFlutter {
       };
       return await _channel.invokeMethod("makeup", args);
   }
+
+  static Future<Null> beginPageView(String name) async {
+    _channel.invokeMethod("beginPageView", {"name": name});
+  }
+
+  static Future<Null> endPageView(String name) async {
+    _channel.invokeMethod("endPageView", {"name": name});
+  }
 }
