@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
 
       } else if (Platform.isAndroid) {
         try {
-          GdumengFlutter.makeup("5cfdcbcb0cafb21ddd0003c6", "Test2");
+          GdumengFlutter.makeup("5d0ecaf84ca35756110001df", "Android");
         } on PlatformException {}
       }
 
