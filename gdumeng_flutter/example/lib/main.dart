@@ -28,12 +28,12 @@ class _MyAppState extends State<MyApp> {
       _inited = true;
       if (Platform.isIOS) {
         try {
-          GdumengFlutter.makeup("5cfdcbed3fc195562c0000ba", "AppStore");
+          GdumengFlutter.makeup("iOS app Key", "AppStore");
         } on PlatformException {}
 
       } else if (Platform.isAndroid) {
         try {
-          GdumengFlutter.makeup("5d0ecaf84ca35756110001df", "Android");
+          GdumengFlutter.makeup("android app key", "Android");
         } on PlatformException {}
       }
 
