@@ -15,11 +15,11 @@ public class SwiftGdumengFlutterPlugin: NSObject, FlutterPlugin {
             self.makeup(call: call)
             result("")
         } else if (call.method == "beginPageView") {
-             self.beginPageView(call)
-             result(null)
+             self.beginPageView(call: call)
+             result(nil)
         } else if (call.method == "endPageView") {
-              self.endPageView(call)
-              result(null)
+              self.endPageView(call: call)
+              result(nil)
         }  else {
             result(FlutterMethodNotImplemented)
         }
